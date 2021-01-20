@@ -1,35 +1,33 @@
 
-Abstract:
+Artificial Intelligence Project
 
-Chest-X ray (CXR) radiography can be used as a first-line triage process for non-COVID-19 patients who have similar symptoms. 
-However, the similarity between features of CXR images of COVID-19 and pneumonia caused by other infections make the differential 
-diagnosis by radiologists challenging. We hypothesized that machine learning-based classifiers can reliably distinguish the CXR images 
-of COVID-19 patients from other forms of pneumonia. We used feature extraction and dimensionality reduction methods to generate an efficient 
-machine learning classifier that can distinguish COVID-19 cases from non-COVID-19 cases with high accuracy and sensitivity. We propose that 
-our COVID-Classifier classifier can be used in conjunction with other tests for optimal allocation of hospital resources by rapid triage of non-COVID-19 cases.  
+The most used method of testing for COVID is using a swab to extract a sample and then test that sample for the presence of virus. Another method is to take a blood test and look for the antibodies in the blood sample. Either of these methods take a couple of days or more depending on the priority. Chest X-ray (CXR) is a relatively cheap and accessible method for examining various lung problems. Hence why the CXR images are so readily available as completed datasets. The approach used in this project and the skeleton adopted are from the project: Abolfazl Zargari Khuzani, Morteza Heidari, Ali Shariati, "COVID-Classifier: An automated machine learning model to assist in the diagnosis of COVID-19 infection in chest x-ray images," medRxiv, doi: https://doi.org/10.1101/2020.05.09.20096560, 2020
 
-Dataset:
-COVID-> 140 X-ray images
-Normal-> 140 X-ray images
-Pneumonia-> 140 X-ray images
+The dataset was taken from here: http://14.139.62.220/covid_19_models/
 
-How to use:
-1-Run "preprocess_images.py" to preprocess images done by resizing, normalization, adaptive histogram equalization
+We took 1,950 samples of COVID-19, 416 of Pnuemonia and 192 CXRs of healthy lungs. The dataset is filtered on some of the following criterias: Must be adult, clarity of lung fluids, must be PA as it's usually preferred in terms of image quality and is more common so introducing unnecessary idiosyncrasies in a dataset may prove counterproductive in terms of extracting pattern from the data.
 
-2-Run "extract_features.py" to create three feature pools for covid or normal or pneumonia datasets
+A GUI is implemented on which we can upload a CXR image to check whether it is COVID-19 infected or not.
 
-3-Run "evaluate_features.py" to evaluate extracted features
+Steps:
 
-4-Run "train_model.py" to train and then evaluate model  
+Run preprocess_images.py 
 
-Test results:
 
-	        Precision	 Sensitivity	 F-score	 Support
-COVOD-19	   96%	           100%	           0.98	           25
-Normal	           88%	           100%	           0.94	           31
-Pneumonia	   100%	           82%	           0.91	           28
+Then run extract_features.py which extract texture features from our image dataset. 
 
-Please cite the follwoing paper if you use our paper codes:
+Run evaluate_features.py 
 
-Abolfazl Zargari Khuzani, Morteza Heidari, Ali Shariati, "COVID-Classifier: An automated machine learning model to assist in the diagnosis of COVID-19 infection in chest x-ray images," medRxiv, doi: https://doi.org/10.1101/2020.05.09.20096560, 2020.
+
+Then run train_model.py to train the neural net 
+
+
+
+Finally run GUI.py and select any CXR image to classify it. (Change the path in predict_model.py accordingly.)
+
+
+
+A detailed analysis of the code is included in the report.
+
+The research paper on this COVID classifier is also included.
 
