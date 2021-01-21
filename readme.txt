@@ -26,6 +26,12 @@ Then run train_model.py to train the neural net
 Finally run GUI.py and select any CXR image to classify it. (Change the path in predict_model.py accordingly.)
 
 
+If you use our project our research please cite us:
+Hashmi, Syedah Nawal Munif (2021): Research Paper.pdf. figshare. Preprint. https://doi.org/10.6084/m9.figshare.13623986.v1 
+OR: 
+10.13140/RG.2.2.19994.06080
+
+
 
 A detailed analysis of the code is included in the report.
 
